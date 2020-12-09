@@ -20,6 +20,10 @@ def location(update, context):
     """Send a message when the command /location is issued."""
     update.message.reply_text('Address:\nBraddell Heights Community Hub (beside NEX)\n264 Serangoon Central, Singapore 550264')
 
+def menu(update, context):
+    """Send a message when the command /menu is issued."""
+    update.message.reply_document("https://drive.google.com/uc?export=download&id=1JjlSpryIPXqtbfV12s2kkk6iKvv6Zmk1")
+
 def echo(update, context):
     """Echo the user message."""
     update.message.reply_text(update.message.text)
@@ -41,6 +45,7 @@ def main():
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("open", open))
     dp.add_handler(CommandHandler("location", location))
+    dp.add_handler(CommandHandler("menu", menu))
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
