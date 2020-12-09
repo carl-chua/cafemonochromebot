@@ -12,13 +12,13 @@ TOKEN = '1494949753:AAFjxmUpqyh7NUOVCOjBCaDy1qJ7AQBmNN4'
 
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
-def start(update, context):
-    """Send a message when the command /start is issued."""
-    update.message.reply_text('Hi!')
+def open(update, context):
+    """Send a message when the command /open is issued."""
+    update.message.reply_text('Operating hours:\nMon-Thur 10am-9pm\nFri-Sun 10am-11pm')
 
-def help(update, context):
-    """Send a message when the command /help is issued."""
-    update.message.reply_text('Help!')
+def location(update, context):
+    """Send a message when the command /location is issued."""
+    update.message.reply_text('Address:\nBraddell Heights Community Hub (beside NEX)\n264 Serangoon Central, Singapore 550264')
 
 def echo(update, context):
     """Echo the user message."""
@@ -39,8 +39,8 @@ def main():
     dp = updater.dispatcher
 
     # on different commands - answer in Telegram
-    dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(CommandHandler("help", help))
+    dp.add_handler(CommandHandler("open", open))
+    dp.add_handler(CommandHandler("location", location))
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
