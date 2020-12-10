@@ -24,6 +24,10 @@ def menu(update, context):
     """Send a message when the command /menu is issued."""
     update.message.reply_document("https://drive.google.com/uc?export=download&id=1JjlSpryIPXqtbfV12s2kkk6iKvv6Zmk1")
 
+def promotion(update, context):
+    """Send a message when the command /promotion is issued."""
+    update.message.reply_photo("https://drive.google.com/uc?export=download&id=1D8i4I8JfS8JR_OwyILWo6aOsZHeOwD7s")
+
 def echo(update, context):
     """Echo the user message."""
     update.message.reply_text(update.message.text)
@@ -46,6 +50,7 @@ def main():
     dp.add_handler(CommandHandler("open", open))
     dp.add_handler(CommandHandler("location", location))
     dp.add_handler(CommandHandler("menu", menu))
+    dp.add_handler(CommandHandler("promotion", promotion))
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
